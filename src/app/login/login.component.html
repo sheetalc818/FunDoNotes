@@ -1,9 +1,11 @@
 
 <div id="container">
-<h1>FunDoNotes</h1>   
-<form>
+    <div style="text-align:center">
+        <img width="130" alt="FundoLogo" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b5993922679119.56316a0ca4a90.png">
+    </div>  
+    <form>
         <label for="username">Username:</label>
-        <input type="text" placeholder="Enter username" id="username" name="username">
+        <input type="text" placeholder="Enter username" id="username" name="username">
 
         <label for="password">Password:</label>
         <input type="password" placeholder="Enter password" id="password" name="password">
@@ -11,11 +13,11 @@
         <div id="lower">
             <table>
                     <tr>
-                      <th><button type="submit" value="Login">Login</button></th>
-                      <th><button type="submit" value="Register">Registration</button></th>
+                      <th><button type="submit" (click)="Login">Login</button></th>
+                      <th><button type="submit" (click)="Register">Registration</button></th>
                     </tr>
             </table>
         </div>
     
-    </form>
+    </form>
 </div>

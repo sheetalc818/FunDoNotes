@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 @NgModule({
   // NgModule decorator groups services, components, pipes and directives
@@ -17,7 +18,9 @@ import {FormsModule} from '@angular/forms'
    
     RegistrationComponent,
    
-    LoginComponent
+    LoginComponent,
+   
+    DashboardComponent
   ],
   imports: 
   [
