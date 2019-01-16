@@ -6,29 +6,31 @@ import { AppComponent } from './app.component';
 
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   // NgModule decorator groups services, components, pipes and directives
-  declarations: 
-  [
-    // Angular CLI registers components in the declarations array by default
-    AppComponent,
-   
-    RegistrationComponent,
-   
-    LoginComponent,
-   
-    DashboardComponent
-  ],
-  imports: 
-  [
-    // Register all the modules in the imports array
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  declarations:
+    [
+      // Angular CLI registers components in the declarations array by default
+      AppComponent,
+
+      RegistrationComponent,
+
+      LoginComponent,
+
+      DashboardComponent
+    ],
+  imports:
+    [
+      // Register all the modules in the imports array
+      BrowserModule,
+      AppRoutingModule,
+      FormsModule,
+      HttpClientModule
+    ],
 
   // To make your service globally available register in the providers array
   providers: [],

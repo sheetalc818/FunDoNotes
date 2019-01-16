@@ -1,15 +1,38 @@
-<div id="container">
+<!--HTML is the standard markup language for creating Web pages
+HTML stands for Hyper Text Markup Language
+HTML describes the structure of Web pages using markup-->
 
+
+<div class="container">
+
+  <div>
+    <img width="150" alt="FundoLogo" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b5993922679119.56316a0ca4a90.png">
+  </div>
+  <h3>Create your Account</h3>
   <form>
-          <table>
-          <tr>
-            <label for="firstname">Firstname:</label>
-            <input type="text" placeholder="Enter Firstname" id="firstname" name="firstname">
-            
-            <label for="lastname">:</label>
-            <input type="text" placeholder="Enter Lastname" id="lastname" name="lastname">
-          </tr>
-          </table>
-          
+
+    <label for="firstname">Firstname:</label>
+    <input type="text" placeholder="Enter First Name" id="Firstname" name="fname" required><br>
+
+    <label for="lastname">Lastname:</label>
+    <input type="text" placeholder="Enter Last Name" id="Lastname" name="lname" required><br>
+
+    <label for="mobileno">MobileNo:</label>
+    <input type="text" placeholder="Enter Mobile Number" id="mobileno" name="mnum" required> <br>
+
+    <label for="MailId">Email Id :</label>
+    <input type="text" placeholder="Enter Email" id="MailId" name="email" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" placeholder="Enter password" id="Password" name="pwd" required> <br>
+
+    <label for="Confirm password">Password:</label>
+    <input type="password" placeholder="Confirm password" id="ConfirmPassword" name="cpwd" required> <br>
+
+    <button type="submit" method="post" (click)="registration()"><b>Submit</b></button>
+    <button type="submit" method="post" (click)="cancel()"><b>Cancel</b></button>
+
+
   </form>
+
 </div>

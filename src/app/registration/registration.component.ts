@@ -7,19 +7,16 @@ import { from } from 'rxjs';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent implements OnInit 
-{
+export class RegistrationComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  registration()
-  {
+  registration() {
     this.router.navigate([' ']);
   }
-  cancel()
-  {
+  cancel() {
     this.router.navigate([' ']);
   }
 }

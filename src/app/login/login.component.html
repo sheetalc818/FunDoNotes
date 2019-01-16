@@ -1,23 +1,20 @@
-
 <div id="container">
     <div style="text-align:center">
         <img width="130" alt="FundoLogo" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b5993922679119.56316a0ca4a90.png">
-    </div>  
+    </div>
     <form>
         <label for="username">Username:</label>
-        <input type="text" placeholder="Enter username" id="username" name="username">
+        <input type="text" placeholder="Enter username" id="username" name="username" [(ngModel)]="model.email"
+            required>
 
         <label for="password">Password:</label>
-        <input type="password" placeholder="Enter password" id="password" name="password">
-    
+        <input type="password" placeholder="Enter password" id="password" name="password" [(ngModel)]="model.password"
+            required>
+
         <div id="lower">
-            <table>
-                    <tr>
-                      <th><button type="submit" (click)="Login">Login</button></th>
-                      <th><button type="submit" (click)="Register">Registration</button></th>
-                    </tr>
-            </table>
+            <button type="submit" (click)="login()">Login</button>
+            <button type="submit" (click)="registration()">Registration</button>
         </div>
-    
+
     </form>
 </div>
