@@ -1,4 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
+
+/**************************************************************************************
+
+ @Purpose : Root file to describe how the application parts fit together using @NgModule
+
+ @Author  : Sheetal Chaudhari
+
+ @Date    : 15/01/2019
+
+***************************************************************************************/
+
+import { BrowserModule } from '@angular/platform-browser';//the BrowserModule that this and every application needs to run in a browser.
 import { NgModule } from '@angular/core';// NgModule Angular service
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
   // NgModule decorator groups services, components, pipes and directives
   declarations:
     [
-      // Angular CLI registers components in the declarations array by default
       AppComponent,
 
       RegistrationComponent,
@@ -23,9 +33,10 @@ import { HttpClientModule } from '@angular/common/http';
 
       DashboardComponent
     ],
+    
+  //Add a module to the imports array when the application requires its features.
   imports:
     [
-      // Register all the modules in the imports array
       BrowserModule,
       AppRoutingModule,
       FormsModule,
@@ -36,6 +47,6 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
 
   //An angular Bootstrap array is required for starting the execution of the main app.
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent]// the root component that Angular creates and inserts into the index.html host web page.
 })
 export class AppModule { }

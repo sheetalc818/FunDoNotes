@@ -1,20 +1,42 @@
+
+<!--************************************************************************************
+    @purpose: HTML file for designing login page
+    
+    @author : Sheetal Chaudhari
+
+    @date   : 13/01/2019
+***************************************************************************************-->
+
+
+<!--HTML is the standard markup language for creating Web pages
+HTML stands for Hyper Text Markup Language
+HTML describes the structure of Web pages using markup-->
+
 <div id="container">
+
+    <!--For image-->
     <div style="text-align:center">
         <img width="130" alt="FundoLogo" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b5993922679119.56316a0ca4a90.png">
     </div>
+
+    <!--Form Body-->
     <form>
+
+        <!--Username-->
         <label for="username">Username:</label>
         <input type="text" placeholder="Enter username" id="username" name="username" [(ngModel)]="model.email"
             required>
 
+        <!--For password-->
         <label for="password">Password:</label>
         <input type="password" placeholder="Enter password" id="password" name="password" [(ngModel)]="model.password"
             required>
 
+        <!--For Buttons-->
         <div id="lower">
-            <button type="submit" (click)="login()">Login</button>
-            <button type="submit" (click)="registration()">Registration</button>
+            <button type="submit" (click)="login()"><a>Login</a></button>
+            <button type="submit" (click)="registration()"><a>Registration</a></button>
         </div>
-
+    <!--Form body ends-->
     </form>
 </div>

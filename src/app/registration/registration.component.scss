@@ -1,48 +1,52 @@
+/**************************************************************************************
+
+ @Purpose : CSS file for designing Registartion page
+
+ @Author  : Sheetal Chaudhari
+
+ @Date    : 14/01/2019
+
+***************************************************************************************/
+
+
+
 /* Bordered form */
 form 
 {
     border: 20px solid #ffffff;
 }
-    /* Full-width inputs */
+
+/* Full-width inputs for div */
 div
 {
     padding-left: 120px;
     margin-top:10px;
 }
 
+/*For head title*/
 h3
 {
     color: aqua;
     padding-left: 100px;
     padding-top:5px;
     margin-top: 10px
-
 }
+
+//for input type=text
 input[type=text]
 {
     width: 250px;
     height: 30px;
     padding: 12px 20px;
-    margin-left: 8px;
+    margin-left: 5px;
     margin-top: 10px;
     box-sizing: border-box;
     border: 2px solid gray;
-    border-radius: 4px
+    border-radius: 4px;
+    
 }
 
-input[type=MailId]
-{
-    width: 250px;
-    height: 30px;
-    padding:12px 20px;
-    margin-left: 50px;
-    margin-top: 5px;
-    box-sizing: border-box;
-    border: 2px solid gray;
-    border-radius: 4px
-}
-
-
+//for input type submit
 input[type=submit] 
 {
     background-color: #ffffff;
@@ -50,7 +54,8 @@ input[type=submit]
     color: white;
     padding: 16px 32px;
     text-decoration: none;
-    margin: 4px 2px;
+    margin-left: 5px;
+    margin-top: 5px;
     cursor: pointer;
     padding-top: 10px;
     padding-left: 10px;
@@ -70,16 +75,17 @@ input[type=password]
     border-radius: 4px;
 }
 
-
+/*For buttons*/
 button
 {
-    width: 110px;
-    height: 30px;
-    margin-left: 50px;
+    width: 130px;
+    height: 50px;
+    margin-left: 30px;
     margin-top: 50px;
     background:aqua;
     border-radius: 4px;
 }
+
 /* Add a hover effect for buttons */
 button:hover 
 {
@@ -96,11 +102,13 @@ button:hover
     margin-bottom: 5px;
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 5px
+    margin-top: 5px;
+    width: 300px;
+    height: 400px;
 }
 .container
 {
-    width: 450px;
+    width: 400px;
     height: 600px;
     top: 50%;
     left:50%;

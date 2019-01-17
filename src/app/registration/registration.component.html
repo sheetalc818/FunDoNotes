@@ -1,38 +1,58 @@
+
 <!--HTML is the standard markup language for creating Web pages
 HTML stands for Hyper Text Markup Language
 HTML describes the structure of Web pages using markup-->
 
+<!--************************************************************************************
+    @purpose: HTML file for designing login page
+    
+    @author : Sheetal Chaudhari
+
+    @date   : 13/01/2019
+***************************************************************************************-->
 
 <div class="container">
 
+  <!--Image code-->
   <div>
     <img width="150" alt="FundoLogo" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b5993922679119.56316a0ca4a90.png">
   </div>
+
+  <!--Head Title-->
   <h3>Create your Account</h3>
+  
+  <!--Form body-->
   <form>
 
+    <!--Firstname-->
     <label for="firstname">Firstname:</label>
-    <input type="text" placeholder="Enter First Name" id="Firstname" name="fname" required><br>
+    <input type="text" placeholder="Enter First Name" id="Firstname" name="fname" [(ngModel)]="model.firstName" required><br>
 
+    <!--lastname-->
     <label for="lastname">Lastname:</label>
-    <input type="text" placeholder="Enter Last Name" id="Lastname" name="lname" required><br>
+    <input type="text" placeholder="Enter Last Name" id="Lastname" name="lname" [(ngModel)]="model.lastName" required><br>
 
+    <!--MoblileNo-->
     <label for="mobileno">MobileNo:</label>
-    <input type="text" placeholder="Enter Mobile Number" id="mobileno" name="mnum" required> <br>
+    <input type="text" placeholder="Enter Mobile Number" id="mobileno" name="mnum" [(ngModel)]="model.phoneNumber" required> <br>
 
+    <!--MailId-->
     <label for="MailId">Email Id :</label>
-    <input type="text" placeholder="Enter Email" id="MailId" name="email" required><br>
+    <input type="text" placeholder="Enter Email" id="MailId" name="email"   [(ngModel)]="model.email" required><br>
 
+    <!--Password-->
     <label for="password">Password:</label>
-    <input type="password" placeholder="Enter password" id="Password" name="pwd" required> <br>
+    <input type="password" placeholder="Enter password" id="Password" name="pwd" [(ngModel)]="model.password" required> <br>
 
+    <!--confirm password-->
     <label for="Confirm password">Password:</label>
-    <input type="password" placeholder="Confirm password" id="ConfirmPassword" name="cpwd" required> <br>
+    <input type="password" placeholder="Confirm password" id="ConfirmPassword" name="cpwd" [(ngModel)]="model.confirmPassword" required> <br>
 
+    <!--Button-->
     <button type="submit" method="post" (click)="registration()"><b>Submit</b></button>
     <button type="submit" method="post" (click)="cancel()"><b>Cancel</b></button>
 
-
+  <!--Form body ends-->
   </form>
-
 </div>
+

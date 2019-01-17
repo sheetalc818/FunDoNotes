@@ -1,11 +1,22 @@
-//https://www.developerdrive.com/2013/03/how-to-create-a-beautiful-login-form/
 
-/* Bordered form */
+/**************************************************************************************
+
+@Purpose : CSS file for designing Login page
+
+@Author  : Sheetal Chaudhari
+
+@Date    : 14/01/2019
+
+***************************************************************************************/
+
+/*Bordered form */
 form 
 {
     border: 20px solid #ffffff;
+   
 }
 
+//Id container
 #container 
 {
     padding-left: 20px;
@@ -36,13 +47,14 @@ form
     border: 1px solid #c7d0d2;
     border-radius: 2px;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
+    
 }
 
+//for username
 input[type=text],
 input[type=username]
 {
     color: #777;
-    //padding-left:5px;
     padding-right:20px;
     margin: 10px;
     margin-top:12px;
@@ -52,11 +64,11 @@ input[type=username]
     height: 35px;
 }
 
+//for password
 input[type=text],
 input[type=password] 
 {
     color: #777;
-    //padding-left:5px;
     padding-right:20px;
     margin: 10px;
     margin-top:12px;
@@ -66,6 +78,7 @@ input[type=password]
     height: 35px;
 }
 
+//for submit (Login)
 input[type=submit],
 input[type=Login] 
 {
@@ -79,8 +92,9 @@ input[type=Login]
     padding-right:20px
 }
 
+//for submit (Registration)
 input[type=submit],
-input[type=Register] 
+input[type=Registration] 
 {
     float: right;
     margin-right: 20px;
@@ -103,10 +117,16 @@ input[type=Register]
     padding-right: 10px
 }
 
-
-//Use the :hover selector to change the style of a button when you move the mouse over it.
-
-//Tip: Use the transition-duration property to determine the speed of the "hover" effect
+//for button
+button
+{
+    width: 100px;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid #c7d0d2;
+    margin-left: 15px;
+    margin-top: 5px
+}
 
 p a 
 {
@@ -116,11 +136,14 @@ p a
     margin-top: -13px;
     margin-right: 20px;
 }
+
+//Use :hover selector to change the style of a button when you move the mouse over it.
 p a:hover 
 {
     color: #555;
 }
 
+//Use the transition-duration property to determine the speed of the "hover" effect
 p a 
 {
     font-size: 11px;
@@ -137,12 +160,15 @@ p a
     transition: all .4s ease;
 }
 
+//Use :hover selector to change the style of a button when you move the mouse over it.
 input[type=text]:hover,
 input[type=password]:hover 
 {
     border: 1px solid #b6bfc0;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .7), 0 0 0 5px #f5f7f8;
 }
+
+//The :focus selector is used to select the element that has focus.
 input[type=text]:focus,
 input[type=password]:focus 
 {
@@ -150,15 +176,11 @@ input[type=password]:focus
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #e6f2f9;
 }
 
+//Use :hover selector to change the style of a button when you move the mouse over it.
 input[type=submit]:hover 
 {
     background-image: -webkit-gradient(linear, left top, left bottom, from(#b6e2ff), to(#6ec2e8));
     background-image: -moz-linear-gradient(top left 90deg, #b6e2ff 0%, #6ec2e8 100%);
     background-image: linear-gradient(top left 90deg, #b6e2ff 0%, #6ec2e8 100%);
 }
-input[type=submit]:active 
-{
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#6ec2e8), to(#b6e2ff));
-    background-image: -moz-linear-gradient(top left 90deg, #6ec2e8 0%, #b6e2ff 100%);
-    background-image: linear-gradient(top left 90deg, #6ec2e8 0%, #b6e2ff 100%);
-}
+
