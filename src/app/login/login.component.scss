@@ -1,186 +1,99 @@
 
 /**************************************************************************************
 
-@Purpose : CSS file for designing Login page
+ @Purpose : CSS file for designing Login page
 
-@Author  : Sheetal Chaudhari
+ @Author  : Sheetal Chaudhari
 
-@Date    : 14/01/2019
+ @Date    : 14/01/2019
 
 ***************************************************************************************/
 
-/*Bordered form */
+
+/* Bordered form */
 form 
 {
-    border: 20px solid #ffffff;
-   
+border: 20px solid #ffffff;
 }
 
-//Id container
-#container 
+h3
 {
-    padding-left: 20px;
-    padding-right: 20px;
-    position:fixed;
-    width: 370px;
-    height: 280px;
-    top: 50%;
-    left: 50%;
-    //margin-top: -50px;
-    margin-left: -170px;
+margin-top: 3px;
+color:palevioletred;
+text-align: center;
 }
 
-//outer form line
-#container 
+/* Full-width inputs */
+input 
 {
-    position: fixed;
-    width: 320px;
-    height: 430px;
-    top: 40%;
-    left: 50%;
-    margin-top: -140px;
-    margin-left: -170px;
-	background: white;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    border: 1px solid #c7d0d2;
-    border-radius: 2px;
-    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
-    
+width: 100%;
+padding: 12px 0px;
+margin: 1px 10px;
+display: inline-block;
+border: 1px solid #ccc;
+box-sizing: border-box;
+border-radius: 8px;
 }
 
-//for username
-input[type=text],
-input[type=username]
+/* Set a style for all buttons */
+button 
 {
-    color: #777;
-    padding-right:20px;
-    margin: 10px;
-    margin-top:12px;
-    margin-left:3px;
-    padding-right:20px;
-    width: 243px;
-    height: 35px;
+background-color:gray;
+color:black;
+cursor: pointer;
+border-radius: 8px;
+text-align: center;
+margin-bottom: -13px;
+width: 130px;
+height: 50px;
+margin-left: 40px;
+margin-top: 30px;
+border-radius: 4px;
 }
 
-//for password
-input[type=text],
-input[type=password] 
+
+/* Add a hover effect for buttons */
+button:hover 
 {
-    color: #777;
-    padding-right:20px;
-    margin: 10px;
-    margin-top:12px;
-    margin-left:3px;
-    padding-right:20px;
-    width: 243px;
-    height: 35px;
+opacity: 0.8;
 }
 
-//for submit (Login)
-input[type=submit],
-input[type=Login] 
+
+.container
 {
-    float: right;
-    margin-right: 50px;
-    margin-top: 20px;
-    margin-left: 50px;
-    width: 80px;
-    height: 30px;
-    padding-left:80px;
-    padding-right:20px
+width: 380px;
+height: 450px;
+padding: 15px;
+top: 50%;
+left:50%;
+position:fixed;
+margin-top:-250px;
+margin-left:-250px;
+border: 1px solid #ccc;
+border-radius: 2px;
+box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
-//for submit (Registration)
-input[type=submit],
-input[type=Registration] 
+.excontainer 
 {
-    float: right;
-    margin-right: 20px;
-    margin-top: 20px;
-    width: 80px;
-    height: 30px;
-    padding-left: 5px
+display: flex;
+flex-direction: column;
+width: 350px;
+margin-left: 5px;
+margin-top: 5px;
+padding-left: 5px
 }
 
-//for buttons outer layout
-#lower
+.email 
 {
-    padding:40px;
-    padding-top: 30px;
-    background: #ecf2f5;
-    width: 90%;
-    height: 30px;
-    margin-top: 10px;
-    padding-left: 20px;
-    padding-right: 10px
+border:none;
 }
 
-//for button
-button
+.button 
 {
-    width: 100px;
-    height: 30px;
-    border-radius: 2px;
-    border: 1px solid #c7d0d2;
-    margin-left: 15px;
-    margin-top: 5px
+color: black
 }
 
-p a 
-{
-    font-size: 11px;
-    color: #aaa;
-    float: right;
-    margin-top: -13px;
-    margin-right: 20px;
-}
 
-//Use :hover selector to change the style of a button when you move the mouse over it.
-p a:hover 
-{
-    color: #555;
-}
 
-//Use the transition-duration property to determine the speed of the "hover" effect
-p a 
-{
-    font-size: 11px;
-    color: #aaa;
-    float: right;
-    margin-top: -13px;
-    margin-right: 20px;
-    -webkit-transition: all .4s ease;
-    -moz-transition: all .4s ease;
-    transition: all .4s ease;
-    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
-    -webkit-transition: all .4s ease;
-    -moz-transition: all .4s ease;
-    transition: all .4s ease;
-}
-
-//Use :hover selector to change the style of a button when you move the mouse over it.
-input[type=text]:hover,
-input[type=password]:hover 
-{
-    border: 1px solid #b6bfc0;
-    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .7), 0 0 0 5px #f5f7f8;
-}
-
-//The :focus selector is used to select the element that has focus.
-input[type=text]:focus,
-input[type=password]:focus 
-{
-    border: 1px solid #a8c9e4;
-    box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #e6f2f9;
-}
-
-//Use :hover selector to change the style of a button when you move the mouse over it.
-input[type=submit]:hover 
-{
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#b6e2ff), to(#6ec2e8));
-    background-image: -moz-linear-gradient(top left 90deg, #b6e2ff 0%, #6ec2e8 100%);
-    background-image: linear-gradient(top left 90deg, #b6e2ff 0%, #6ec2e8 100%);
-}
 
