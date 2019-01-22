@@ -33,38 +33,35 @@ export class LoginComponent implements OnInit {
  
  ngOnInit() {}
 
- email = new FormControl('', [Validators.required, Validators.email]);
- //password = new FormControl('',[Validators.required,Validators.minLength(4),Validators.maxLength(8)]);
+ email = new FormControl('', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]);
  password = new FormControl('', [Validators.required,
-  Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
+ Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
 
 
-
- getErrorMessage() 
+ getErrorMessageEmail() 
  {
    return this.email.hasError('required') ? 'You must enter a value' :
-   this.email.hasError('email') ? 'Not a valid email' :
+   this.email.hasError('pattern') ? 'Not a valid email' :
            '';
 }
 
- getErrorMessage1()
- {
-   return this.password.hasError('required') ? 'Password is Required' :
-   this.password.hasError('pattern') ? 'Not a valid Password! Please follow the correct format' :
-        '';
+getErrorMessagePassword() {
+  return this.password.hasError('required') ? 'You must enter a value' :
+  this.password.hasError('pattern') ? 'Not a valid Password! Please follow the correct format' :
+    '';
 }
 
  //validate the login page
  login() {
    var requestBody ={
        "email":this.email.value,
-       "password": this.password
+       "password": this.password.value
    }
    console.log(requestBody);
 
    this.httpService.postService('/user/login', requestBody).subscribe( data => {
      console.log(data);
-     this.router.navigate(['dash-board'])
+     this.router.navigate(['dashboard'])
    }, err => {
      alert("not a registered")
    })

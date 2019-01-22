@@ -36,6 +36,10 @@ const routes: Routes =
   ];
 
 @NgModule({
+
+  /*the forRoot() method supplies the service providers and directives needed for routing, 
+  and performs the initial navigation based on the current browser URL.*/
+
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
