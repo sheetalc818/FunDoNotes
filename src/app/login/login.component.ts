@@ -51,7 +51,7 @@ getErrorMessagePassword() {
     '';
 }
 
- //validate the login page
+//validate the login page
  login() {
    var requestBody ={
        "email":this.email.value,

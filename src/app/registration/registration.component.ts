@@ -50,15 +50,16 @@ export class RegistrationComponent implements OnInit {
   constructor(private router: Router, private httpService: HttpService) { }
 
   hide = true;
-  
 
+  passwordPattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$/;
+  
   ngOnInit() { }
 
   firstName = new FormControl('', [Validators.required]);
 
   lastName = new FormControl('', [Validators.required]);
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]);
 
   password = new FormControl('', [Validators.required,
   Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
@@ -100,8 +101,10 @@ export class RegistrationComponent implements OnInit {
 
   //if Registration button pressed, registration() method invoked.
   
-  registration() {
-    var requestBody = {
+  registration() 
+  {
+    var requestBody = 
+    {
       "firstName": this.firstName.value,
       "lastName": this.lastName.value,
       "email": this.email.value,
@@ -111,30 +114,28 @@ export class RegistrationComponent implements OnInit {
 
     console.log(requestBody);
 
-    if (this.model.firstName && this.model.lastName && this.model.email && this.model.password && this.model.confirmPassword) {
-    this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
+    if(this.model.firstName && this.model.lastName && this.model.email && this.model.password == this.model.confirmPassword && this.passwordPattern.test(this.password.value))
+    {
+        this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
         console.log(data);
         this.router.navigate(['']);
-        
-      }, err => {console.log(err);})
-    } 
-    else {
-     
+        },err => {console.log(err);})
     }
-
-    // if(this.model.password != this.model.confirmPassword)
-    // {
-    //       alert("Password Mismatch");
-    // }
-    // else
-    // {
-    //      alert("Registration Succssful !!");
-    //      this.router.navigate(['']);
-    // }
     
-}
-
-cancel() {
-    this.router.navigate(['']);
+    /*else if(this.model.password != this.model.confirmPassword)
+     {
+           alert("Password Mismatch");
+     }
+     else
+     {
+            alert("Registration Successful !!");
+            this.router.navigate(['']);
+     }*/
+    
   }
+
+    cancel() 
+    {
+      this.router.navigate(['']);
+    }
 }
