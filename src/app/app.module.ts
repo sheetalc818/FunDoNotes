@@ -28,8 +28,6 @@ import { MatIconModule } from "@angular/material/icon";
 
 
 
-
-
 @NgModule({
 declarations: [
 AppComponent,
@@ -48,7 +46,7 @@ MatCheckboxModule,
 MatFormFieldModule,
 ReactiveFormsModule,
 MatInputModule,
-MatIconModule,
+MatIconModule
 ],
 providers: [],
 bootstrap: [AppComponent]

@@ -9,7 +9,7 @@
 
 ***************************************************************************************/
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { HttpService } from '../http.service';
@@ -61,12 +61,13 @@ export class RegistrationComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]);
 
-  password = new FormControl('', [Validators.required,
-  Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
+  password = new FormControl('', [Validators.required]);
   
   confirmPassword = new FormControl('', [Validators.required, 
   Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
     
+  
+  
   getErrorFirst() {
     return this.firstName.hasError('required') ? 'You must enter a value' :
       this.firstName.hasError('firstName') ? 'Enter a valid name' :
@@ -78,10 +79,9 @@ export class RegistrationComponent implements OnInit {
       '';
   }
 
-  
   getErrorEmail() {
     return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
+      this.email.hasError('pattern') ? 'Not a valid email' :
         '';
   }
   
@@ -103,39 +103,36 @@ export class RegistrationComponent implements OnInit {
   
   registration() 
   {
-    var requestBody = 
-    {
+     var requestBody = 
+     {
       "firstName": this.firstName.value,
       "lastName": this.lastName.value,
       "email": this.email.value,
       "password": this.password.value,
       "confirmPassword": this.confirmPassword.value
-    }
+     }
 
-    console.log(requestBody);
+     console.log(requestBody);
 
-    if(this.model.firstName && this.model.lastName && this.model.email && this.model.password == this.model.confirmPassword && this.passwordPattern.test(this.password.value))
-    {
-        this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
-        console.log(data);
-        this.router.navigate(['']);
+     if(this.model.firstName && this.model.lastName && this.model.email && this.model.password == this.model.confirmPassword )
+     {
+          this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
+          console.log(data);
+          alert("Registration Successful !!");
+          this.router.navigate(['']);
         },err => {console.log(err);})
     }
-    
-    /*else if(this.model.password != this.model.confirmPassword)
-     {
+
+    if(this.model.password != this.model.confirmPassword)
+    {
            alert("Password Mismatch");
-     }
-     else
-     {
-            alert("Registration Successful !!");
-            this.router.navigate(['']);
-     }*/
-    
+    }
+
   }
 
     cancel() 
     {
       this.router.navigate(['']);
     }
+
 }
