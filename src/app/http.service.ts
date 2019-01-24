@@ -22,7 +22,7 @@ providedIn: 'root'
 })
 export class HttpService 
 {
-baseUrl = "http://192.168.0.33:8000/api"
+baseUrl = "http://192.168.0.35:8000/api"
 
 //constructor for initialisation of httpClient
 constructor(private http: HttpClient) { }

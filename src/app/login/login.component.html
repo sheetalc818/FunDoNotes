@@ -1,7 +1,10 @@
+
 <!--************************************************************************************
     @purpose: HTML file for designing login page
     
     @author : Sheetal Chaudhari
+
+    @version: 7.2.1
 
     @date   : 13/01/2019
 ***************************************************************************************-->
@@ -12,7 +15,8 @@ HTML stands for Hyper Text Markup Language
 HTML describes the structure of Web pages using markup-->
 
 <!--div class="container"-->
-<!--<div *ngIf='clickedDivState == "start"'>-->
+
+
 <div class="container">
 
     <div style="text-align:center">
@@ -24,18 +28,18 @@ HTML describes the structure of Web pages using markup-->
     <div class="excontainer">
         
         <mat-form-field>
-            <input class="email" (ngModel)="email" matInput placeholder="Enter your email" [formControl]="email"
+            <input class="email" (ngModel)="email" matInput placeholder="Enter Email Id" [formControl]="email"
             pattern="[^ @]*@[^ @]*" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
         </mat-form-field>
     
     </div>
 
-   <!-- <div [@EnterLeave]="'flyIn'" *ngIf='clickedDivState == "end"'>-->
 
     <div class="excontainer">
         
         <mat-form-field>
+            
             <input matInput placeholder="Enter your password" [formControl]="password" 
             [(ngModel)]="model.password" [type]="hide ? 'password' : 'text'"
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" required>

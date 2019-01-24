@@ -25,6 +25,7 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule} from '@angular/material';
 import { MatIconModule } from "@angular/material/icon";
+import { MatSnackBarModule} from '@angular/material';
 
 
 
@@ -33,7 +34,7 @@ declarations: [
 AppComponent,
 LoginComponent,
 RegistrationComponent,
-DashboardComponent
+DashboardComponent,
 ],
 imports: [
 BrowserModule,
@@ -46,7 +47,8 @@ MatCheckboxModule,
 MatFormFieldModule,
 ReactiveFormsModule,
 MatInputModule,
-MatIconModule
+MatIconModule,
+MatSnackBarModule
 ],
 providers: [],
 bootstrap: [AppComponent]

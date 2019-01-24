@@ -15,7 +15,7 @@ import { from } from 'rxjs';
 import { HttpService } from '../http.service';
 import { FormControl, Validators } from '@angular/forms';
 import { nextContext } from '@angular/core/src/render3';
-import {MatSnackBarModule} from '@angular/material/snack-bar'
+import { MatSnackBar} from '@angular/material'
 
 @Component({
   selector: 'app-registration',
@@ -47,13 +47,15 @@ export class RegistrationComponent implements OnInit {
   
   //constructor for initialization for http services.
 
-  constructor(private router: Router, private httpService: HttpService) { }
+  constructor(private router: Router, private httpService: HttpService ,private snackbar: MatSnackBar) { }
 
   hide = true;
 
   passwordPattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$/;
   
   ngOnInit() { }
+
+  //Tracks the value and validation status of an individual form control
 
   firstName = new FormControl('', [Validators.required]);
 
@@ -81,19 +83,19 @@ export class RegistrationComponent implements OnInit {
 
   getErrorEmail() {
     return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('pattern') ? 'Not a valid email' :
+      this.email.hasError('pattern') ? 'Not a valid email, MailId must contains @' :
         '';
   }
   
   getErrorMessagePassword() {
     return this.password.hasError('required') ? 'Password is Required' :
-      this.password.hasError('pattern') ? 'Not a valid Password! Please follow the correct format' :
-        '';
+      this.password.hasError('pattern') ? 'Password length should be min 8! Please type 1st letter capital,use special character,use numbers in your password' :
+       '';
   }
 
   getErrorMessageConfirmPassword() {
     return this.confirmPassword.hasError('required') ? 'Password is Required' :
-      this.confirmPassword.hasError('pattern') ? 'Not a valid Password! Please follow the correct format' :
+      this.confirmPassword.hasError('pattern') ? 'Not a valid Password! Please type 1st letter capital,use special character,use numbers in your password' :
         '';
 }
 
@@ -122,17 +124,14 @@ export class RegistrationComponent implements OnInit {
           this.router.navigate(['']);
         },err => {console.log(err);})
     }
-
     if(this.model.password != this.model.confirmPassword)
     {
            alert("Password Mismatch");
     }
-
   }
-
-    cancel() 
-    {
+  cancel() 
+  {
       this.router.navigate(['']);
-    }
+  }
 
 }
