@@ -29,7 +29,7 @@ HTML describes the structure of Web pages using markup-->
     <div class="excontainer">
         
         <mat-form-field>
-            <input class="email"  matInput placeholder="Enter Email Id" [formControl]="email"
+            <input class="email" name="email"  matInput placeholder="Enter Email Id" [formControl]="email"
             pattern="[^ @]*@[^ @]*" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
         </mat-form-field>
@@ -40,7 +40,7 @@ HTML describes the structure of Web pages using markup-->
     <div class="excontainer">
         
         <mat-form-field>
-            <input matInput placeholder="Enter your password" [formControl]="password" 
+            <input matInput placeholder="Enter your password" name="password" [formControl]="password" 
             [type]="hide ? 'password' : 'text'"
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" required>
             <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>

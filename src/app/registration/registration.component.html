@@ -30,7 +30,7 @@ HTML describes the structure of Web pages using markup-->
       <!--Firstname-->
       <mat-form-field>
 
-        <input matInput placeholder="Enter First Name" [(ngModel)]="model.firstName" required>
+        <input matInput placeholder="Enter First Name" name="firstname" [(ngModel)]="model.firstName" required>
         <mat-error *ngIf="firstName.invalid">{{getErrorFirst()}}</mat-error>
 
       </mat-form-field>
@@ -39,7 +39,7 @@ HTML describes the structure of Web pages using markup-->
       <!--lastname-->
       <mat-form-field>
 
-        <input matInput placeholder="Enter Last Name" [(ngModel)]="model.lastName" required>
+        <input matInput placeholder="Enter Last Name" name="lastname" [(ngModel)]="model.lastName" required>
         <mat-error *ngIf="lastName.invalid">{{getErrorLast()}}</mat-error>
 
       </mat-form-field>
@@ -49,7 +49,7 @@ HTML describes the structure of Web pages using markup-->
       <!--MailId-->
       <mat-form-field>
 
-        <input matInput placeholder="Enter Email" [(ngModel)]="model.email" [formControl]="email" pattern="[^ @]*@[^ @]*" required>
+        <input matInput placeholder="Enter Email" name="email" [(ngModel)]="model.email" [formControl]="email" pattern="[^ @]*@[^ @]*" required>
         <mat-error *ngIf="email.invalid">{{getErrorEmail()}}</mat-error>
 
       </mat-form-field>
@@ -68,7 +68,7 @@ HTML describes the structure of Web pages using markup-->
       <!--confirm password-->
       <mat-form-field>
 
-        <input matInput placeholder="Confirm Password" [(ngModel)]="model.confirmPassword" [type]="hide ? 'password' : 'text'" name="confirmPassword"
+        <input matInput placeholder="Confirm Password" [(ngModel)]="model.confirmPassword" [type]="hide ? 'password' : 'text'" name="confirmpassword"
           minlength="8" [formControl]="confirmPassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$"
           required>
         <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -81,7 +81,7 @@ HTML describes the structure of Web pages using markup-->
 
         <!--<button mat-button color="primary" class="button" type="submit" method="post" (click)="registration()"  [disabled]="!form.valid"><b>Submit</b></button>
         <button mat-button color="primary" class="button" type="submit" method="post" (click)="cancel()"><b>Cancel</b></button>-->
-        <button mat-button [disabled]="(!model.firstName)||(!model.lastName)||(!model.email)||(!model.password)" color="primary" class="button" type="submit" method="post"
+        <button mat-button color="primary" class="button" type="submit" method="post"
         (click)="registration()"><b>Submit</b></button>
         <button mat-button color="primary" class="button" type="submit" method="post" (click)="cancel()"><b>Cancel</b></button>
       

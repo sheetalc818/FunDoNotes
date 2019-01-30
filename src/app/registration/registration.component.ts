@@ -121,7 +121,7 @@ export class RegistrationComponent implements OnInit {
             duration: 3000
             });
             return false;
-          }
+         }
     
           var requestBody = 
           {
@@ -142,20 +142,23 @@ export class RegistrationComponent implements OnInit {
               duration: 3000
               });
             this.router.navigate(['']);
-            },err => {console.log(err);})
+            },err => {console.log(err);
+              this.snackbar.open('Registration failed','Undo', 
+              {duration: 3000})
+          })
           }
-      }
-      else
-      {
+          else
+        {
           this.snackbar.open('Registration Failed !! Please fill all the fields first!!','Undo', {
           duration: 3000
           });
           return false;
+        }
       }
-  }
-  
+    }
   cancel() 
   {
       this.router.navigate(['']);
   }
 }
+
