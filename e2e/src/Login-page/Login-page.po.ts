@@ -49,12 +49,12 @@ export class AppPage
 
   getEmail()
   {
-    return element(by.xpath('//*[@id="mat-input-0"]')).sendKeys('rina12@gmail.com');
+    return element(by.xpath('//*[@id="mat-input-0"]')).sendKeys('pranoti@gmail.com');
   }
 
   getPassword()
   {
-    return element(by.xpath('//*[@id="mat-input-1"]')).sendKeys('Rina@12345');
+    return element(by.xpath('//*[@id="mat-input-1"]')).sendKeys('Pranoti@123');
   }
 
 

@@ -68,6 +68,7 @@ describe('workspace-project App', () => {
     expect(page.clickLogin())
    // page.navigateTo();
     browser.sleep(2000);
+    page.navigateTo();
   });
 });
 
