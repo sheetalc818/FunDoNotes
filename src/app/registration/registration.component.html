@@ -1,3 +1,4 @@
+
 <!--HTML is the standard markup language for creating Web pages
 HTML stands for Hyper Text Markup Language
 HTML describes the structure of Web pages using markup-->
@@ -10,74 +11,84 @@ HTML describes the structure of Web pages using markup-->
     @date   : 13/01/2019
 ***************************************************************************************-->
 
-<div class="container">
+<!--<form name="form" [formGroup]="formdata">-->
 
-  <!--Image code-->
-  <div style="text-align:center">
-    <img width="135" alt="FundoLogo" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b5993922679119.56316a0ca4a90.png">
-  </div>
+  <div class="container">
+   
+    <!--Image code-->
+    <div style="text-align:center">
+      <img width="135" alt="FundoLogo" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/b5993922679119.56316a0ca4a90.png">
+    </div>
 
-  <!--Head Title-->
-  <h3>Create your Account</h3>
+    <!--Head Title-->
+    <h3>Create your Account</h3>
 
-  <!--Form body-->
+    <!--Form body-->
 
-  <div class="excontainer">
+    <div class="excontainer">
 
-    <!--Firstname-->
-    <mat-form-field>
-      <input matInput placeholder="Enter First Name" [(ngModel)]="model.firstName" required>
-      <mat-error *ngIf="firstName.invalid">{{getErrorFirst()}}</mat-error>
-    </mat-form-field>
+      <!--Firstname-->
+      <mat-form-field>
 
+        <input matInput placeholder="Enter First Name" [(ngModel)]="model.firstName" required>
+        <mat-error *ngIf="firstName.invalid">{{getErrorFirst()}}</mat-error>
 
-    <!--lastname-->
-    <mat-form-field>
-      <input matInput placeholder="Enter Last Name" [(ngModel)]="model.lastName" required>
-      <mat-error *ngIf="lastName.invalid">{{getErrorLast()}}</mat-error>
-    </mat-form-field>
+      </mat-form-field>
 
 
+      <!--lastname-->
+      <mat-form-field>
 
-    <!--MailId-->
-    <mat-form-field>
-      <input matInput placeholder="Enter Email" [(ngModel)]="model.email" [formControl]="email" pattern="[^ @]*@[^ @]*"
-        required>
-      <mat-error *ngIf="email.invalid">{{getErrorEmail()}}</mat-error>
-    </mat-form-field>
+        <input matInput placeholder="Enter Last Name" [(ngModel)]="model.lastName" required>
+        <mat-error *ngIf="lastName.invalid">{{getErrorLast()}}</mat-error>
+
+      </mat-form-field>
 
 
 
-    <!--Password-->
-    <mat-form-field>
-      <input matInput placeholder="Password" name="password" [(ngModel)]="model.password" minlength="8" [type]="hide ? 'password' : 'text'"
-        [formControl]="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$"
-        required>
-      <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </mat-form-field>
+      <!--MailId-->
+      <mat-form-field>
 
+        <input matInput placeholder="Enter Email" [(ngModel)]="model.email" [formControl]="email" pattern="[^ @]*@[^ @]*" required>
+        <mat-error *ngIf="email.invalid">{{getErrorEmail()}}</mat-error>
 
+      </mat-form-field>
 
-    <!--confirm password-->
-    <mat-form-field>
-      <input matInput placeholder="Confirm Password" [type]="hide ? 'password' : 'text'" name="confirmPassword"
-        [(ngModel)]="model.confirmPassword" minlength="8" [formControl]="confirmPassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$"
-        required>
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      <mat-error *ngIf="confirmPassword == password">{{getErrorMessageConfirmPassword()}}</mat-error>
+      <!--Password-->
+      <mat-form-field>
 
-    </mat-form-field>
+        <input matInput placeholder="Password" name="password" [(ngModel)]="model.password" minlength="8" [type]="hide ? 'password' : 'text'"
+          [formControl]="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$"
+          required>
+        <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 
-    <div class="button">
+      </mat-form-field>
+
+      <!--confirm password-->
+      <mat-form-field>
+
+        <input matInput placeholder="Confirm Password" [(ngModel)]="model.confirmPassword" [type]="hide ? 'password' : 'text'" name="confirmPassword"
+          minlength="8" [formControl]="confirmPassword" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$"
+          required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="confirmPassword != password">{{getErrorMessageConfirmPassword()}}</mat-error>
+
+      </mat-form-field>
 
       <!--Button-->
-      <button mat-button [disabled]="(!model.firstName)||(!model.lastName)||(!model.email)||(!model.password)" color="primary" class="button" type="submit" method="post"
-        (click)="registration()"><b>Submit</b></button>
-      <button mat-button color="primary" class="button" type="submit" method="post" (click)="cancel()"><b>Cancel</b></button>
+      <div class="button">
 
+        <!--<button mat-button color="primary" class="button" type="submit" method="post" (click)="registration()"  [disabled]="!form.valid"><b>Submit</b></button>
+        <button mat-button color="primary" class="button" type="submit" method="post" (click)="cancel()"><b>Cancel</b></button>-->
+        <button mat-button [disabled]="(!model.firstName)||(!model.lastName)||(!model.email)||(!model.password)" color="primary" class="button" type="submit" method="post"
+        (click)="registration()"><b>Submit</b></button>
+        <button mat-button color="primary" class="button" type="submit" method="post" (click)="cancel()"><b>Cancel</b></button>
+      
+      </div>
+      
+     <!--excontainer Ends-->
     </div>
-    <!--Form body ends
-    || !model.lastName || !model.email || !model.password ||-->
+    <!--container Ends-->
   </div>
-</div>
+  

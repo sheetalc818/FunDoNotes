@@ -25,23 +25,23 @@ HTML describes the structure of Web pages using markup-->
 
     <h3> Hii User, Welcome!!</h3>
    
+    <!--For EmailId-->
     <div class="excontainer">
         
         <mat-form-field>
-            <input class="email" (ngModel)="email" matInput placeholder="Enter Email Id" [formControl]="email"
+            <input class="email"  matInput placeholder="Enter Email Id" [formControl]="email"
             pattern="[^ @]*@[^ @]*" required>
             <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
         </mat-form-field>
     
     </div>
 
-
+    <!--For Password-->
     <div class="excontainer">
         
         <mat-form-field>
-            
             <input matInput placeholder="Enter your password" [formControl]="password" 
-            [(ngModel)]="model.password" [type]="hide ? 'password' : 'text'"
+            [type]="hide ? 'password' : 'text'"
             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" required>
             <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -49,7 +49,7 @@ HTML describes the structure of Web pages using markup-->
 
     </div>
    
+    <!--For Buttons-->
     <button mat-button color="primary" class="button" type="submit" (click)="login()"><b>Login</b></button>
-    
     <button mat-button color="primary" class="button" type="submit" (click)="registration()"><b>Register</b></button>
 </div>

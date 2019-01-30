@@ -13,7 +13,8 @@ import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
 import { HttpService } from '../http.service';
-import { FormControl, Validators } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
+import { FormControl, Validators, Form } from '@angular/forms';
 import { nextContext } from '@angular/core/src/render3';
 import { MatSnackBar} from '@angular/material'
 
@@ -47,13 +48,16 @@ export class RegistrationComponent implements OnInit {
   
   //constructor for initialization for http services.
 
+  
   constructor(private router: Router, private httpService: HttpService ,private snackbar: MatSnackBar) { }
 
   hide = true;
 
+  firstnamepattern=/^[_A-z]*((-|\s)*[_A-z])*$/;
+  lastnamepattern=/^[_A-z]*((-|\s)*[_A-z])*$/;
   passwordPattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$/;
   
-  ngOnInit() { }
+  ngOnInit() {}
 
   //Tracks the value and validation status of an individual form control
 
@@ -67,71 +71,91 @@ export class RegistrationComponent implements OnInit {
   
   confirmPassword = new FormControl('', [Validators.required, 
   Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
-    
   
   
-  getErrorFirst() {
+  getErrorFirst() 
+  {
     return this.firstName.hasError('required') ? 'You must enter a value' :
-      this.firstName.hasError('firstName') ? 'Enter a valid name' :
+      this.firstName.hasError('firstnamepattern') ? 'Enter a valid name' :
         '';
   }
   
-  getErrorLast() {
+  getErrorLast() 
+  {
     return this.lastName.hasError('required') ? 'You must enter a value' :
+    this.firstName.hasError('lastnamepattern') ? 'Enter a valid name' :
       '';
   }
 
-  getErrorEmail() {
+  getErrorEmail() 
+  {
     return this.email.hasError('required') ? 'You must enter a value' :
       this.email.hasError('pattern') ? 'Not a valid email, MailId must contains @' :
         '';
   }
   
-  getErrorMessagePassword() {
+  getErrorMessagePassword() 
+  {
     return this.password.hasError('required') ? 'Password is Required' :
       this.password.hasError('pattern') ? 'Password length should be min 8! Please type 1st letter capital,use special character,use numbers in your password' :
        '';
   }
 
-  getErrorMessageConfirmPassword() {
+  getErrorMessageConfirmPassword() 
+  {
     return this.confirmPassword.hasError('required') ? 'Password is Required' :
-      this.confirmPassword.hasError('pattern') ? 'Not a valid Password! Please type 1st letter capital,use special character,use numbers in your password' :
-        '';
-}
-
-
+    this.confirmPassword.hasError('confirmPassword') ? 'Not a valid Password! Please type 1st letter capital,use special character,use numbers in your password' :
+            '';
+  }
 
   //if Registration button pressed, registration() method invoked.
   
   registration() 
   {
-     var requestBody = 
-     {
-      "firstName": this.firstName.value,
-      "lastName": this.lastName.value,
-      "email": this.email.value,
-      "password": this.password.value,
-      "confirmPassword": this.confirmPassword.value
-     }
+      if(this.getErrorFirst()!="" || this.getErrorLast()!="" || this.getErrorEmail()!="" || this.getErrorMessagePassword()!="" || this.getErrorMessageConfirmPassword()!="" )
+      {
 
-     console.log(requestBody);
+         if(this.model.password != this.model.confirmPassword)
+         {
+            this.snackbar.open('Password mismatch !! , Please enter the valid password!!','Undo', {
+            duration: 3000
+            });
+            return false;
+          }
+    
+          var requestBody = 
+          {
+              "firstName": this.firstName.value,
+              "lastName": this.lastName.value,
+              "email": this.email.value,
+              "password": this.password.value,
+              "confirmPassword": this.confirmPassword.value
+          }
 
-     if(this.model.firstName && this.model.lastName && this.model.email && this.model.password == this.model.confirmPassword )
-     {
-          this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
-          console.log(data);
-          alert("Registration Successful !!");
-          this.router.navigate(['']);
-        },err => {console.log(err);})
-    }
-    if(this.model.password != this.model.confirmPassword)
-    {
-           alert("Password Mismatch");
-    }
+          console.log(requestBody);
+
+          if(this.model.firstName && this.model.lastName && this.model.email && this.model.password == this.model.confirmPassword )
+          {
+            this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
+            console.log(data);
+            this.snackbar.open('Registration Successful!!','Undo', {
+              duration: 3000
+              });
+            this.router.navigate(['']);
+            },err => {console.log(err);})
+          }
+      }
+      else
+      {
+          this.snackbar.open('Registration Failed !! Please fill all the fields first!!','Undo', {
+          duration: 3000
+          });
+          return false;
+      }
   }
+  
   cancel() 
   {
       this.router.navigate(['']);
   }
-
 }
