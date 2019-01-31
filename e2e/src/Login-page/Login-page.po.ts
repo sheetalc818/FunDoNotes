@@ -9,56 +9,80 @@ export class AppPage
     return browser.get('/');
   }
 
-  clickregister()
+
+
+  /****************************************************************************************
+  
+  @description  Functions for Negative Scripts of Registration page and Login page
+
+  *****************************************************************************************/
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  /****************************************************************************************
+  
+  @description  Functions for Positive Scipts of Registration page and Login page
+
+  *****************************************************************************************/
+  clickRegister()
   {
     return element(by.xpath('/html/body/app-root/app-login/div/button[2]')).click();
   }
 
-  getfirstname()
+  getFirstName()
   {
     return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('Pranoti');
   }
 
-  getlastname()
+  getLastName()
   {
     return element(by.xpath('//*[@id="mat-input-3"]')).sendKeys('Kusare');
   }
 
-  getemailid()
+  getEmailId()
   {
     return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('pranoti@gmail.com');
   }
 
-  getpassword()
+  getPassword()
   {
     return element(by.xpath('//*[@id="mat-input-5"]')).sendKeys('Pranoti@123');
   }
 
-  getcpwd()
+  getConfirmPassword()
   {
     return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('Pranoti@123');
   }
 
-  clicksubmit()
+  clicksubmitButton()
   {
     return element(by.xpath('/html/body/app-root/app-registration/div/div[2]/div/button[1]')).click();
   }
 
 
-/*******************************for login page*******************************************/
+ /*******************************For Login Page*****************************************/
 
-  getEmail()
+  getLoginEmail()
   {
     return element(by.xpath('//*[@id="mat-input-0"]')).sendKeys('pranoti@gmail.com');
   }
 
-  getPassword()
+  getLoginPassword()
   {
     return element(by.xpath('//*[@id="mat-input-1"]')).sendKeys('Pranoti@123');
   }
 
-
-  clickLogin()
+  clickLoginButton()
   {
     return element(by.xpath('/html/body/app-root/app-login/div/button[1]')).click();
   }

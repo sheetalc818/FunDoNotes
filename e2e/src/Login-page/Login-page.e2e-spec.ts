@@ -9,7 +9,44 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
- /* it('should display FundooNotes', () => {
+  it('should click on "Register" button and go to the Registration page',()=>{
+    page.navigateTo();
+    browser.sleep(2000);
+    expect(page.clickRegister());
+   });
+
+  it('should fill all text fields of Registration page and click on "Submit" button ',()=>{
+    browser.sleep(2000);
+    expect(page.getFirstName());
+    browser.sleep(2000);
+    expect(page.getLastName());
+    browser.sleep(2000);
+    expect(page.getEmailId());
+    browser.sleep(2000);
+    expect(page.getPassword());
+    browser.sleep(2000);
+    expect(page.getConfirmPassword());
+    browser.sleep(2000);
+    expect(page.clicksubmitButton());
+    browser.sleep(5000);
+    page.navigateTo();
+  });
+
+  it('should put values in Login page, Click on "Login" button and route to "dashboard"', () => {
+    browser.sleep(2000);
+    browser.sleep(2000);
+    expect(page.getLoginEmail());
+    browser.sleep(2000);
+    expect(page.getLoginPassword());
+    browser.sleep(3000)
+    expect(page.clickLoginButton());
+    browser.sleep(2000);
+    page.navigateTo();
+  });
+});
+
+	
+/* it('should display FundooNotes', () => {
     page.navigateTo();
     // browser.pause();
     expect(page.getTitleText()).toEqual('FundooNotes');
@@ -29,51 +66,7 @@ describe('workspace-project App', () => {
     browser.sleep(2000);
     page.navigateTo();
     expect(page.clickLogin())
-    
   });*/
-
-  it('click on Register and go to the Login page',()=>{
-    page.navigateTo();
-    //expect(page.getemail())
-   // expect(page.getPwd())
-    browser.sleep(2000);
-    expect(page.clickregister())
-   });
-
-  it('should fill all text fields of Registration form and submit it',()=>{
-    browser.sleep(2000);
-    expect(page.getfirstname())
-    browser.sleep(2000);
-    expect(page.getlastname())
-    browser.sleep(2000);
-    expect(page.getemailid())
-    browser.sleep(2000);
-    expect(page.getpassword())
-    browser.sleep(2000);
-    expect(page.getcpwd())
-    browser.sleep(2000);
-    expect(page.clicksubmit())
-    browser.sleep(5000);
-    page.navigateTo();
-  });
-
-  it('should put value in login page field and go to dashboard', () => {
-    browser.sleep(2000);
-   // page.navigateTo();
-    browser.sleep(2000);
-    expect(page.getEmail())
-    browser.sleep(2000);
-    expect(page.getPassword())
-    browser.sleep(3000)
-    expect(page.clickLogin())
-   // page.navigateTo();
-    browser.sleep(2000);
-    page.navigateTo();
-  });
-});
-
-	
-
 
 
 
