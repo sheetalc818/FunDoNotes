@@ -22,7 +22,9 @@
   beforeEach(() => {
     page = new AppPage();
   });
-
+  
+  browser.driver.manage().window().maximize();
+  
   /*it('should display Title Text', () => {
     page.navigateTo();
     browser.pause();
@@ -288,7 +290,7 @@ it('should show Invalid Result if "FirstName" field is blanck', () => {
   page.navigateTo();
  });
 
-/********************************Testscripts for Firstname********************************/
+/********************************Testscripts for Firstname********************************
  
 it('should show Invalid Result if "FirstName" field value contains any number', () => {
   browser.sleep(2000);
@@ -598,7 +600,7 @@ it('should show Invalid Result if "FirstName" field value contains any number', 
  });
 
 
- /********************************Testscripts Password Mismatch****************************/
+ /********************************Testscript Password Mismatch****************************/
 
  it('should show Invalid Result if "password" and "confirmPassword" fields values are not matched', () => {
   browser.sleep(2000);
@@ -616,6 +618,15 @@ it('should show Invalid Result if "FirstName" field value contains any number', 
   expect(page.clicksubmitButton()); 
   browser.sleep(2000);
   page.navigateTo();
+ });
+
+ /********************************Testscript For Cancel Button****************************/
+ 
+ it('should click on cancel button and route to the Login page', () => {
+  browser.sleep(2000);
+  expect(page.clickRegistrationButton());
+  browser.sleep(2000);
+  expect(page.clickCancelButton());
  });
 
 })

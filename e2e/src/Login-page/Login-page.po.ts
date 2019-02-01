@@ -46,7 +46,7 @@ getLastName()
 
 getEmailId()
 {
-    return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('pranoti1@gmail.com');
+    return element(by.xpath('//*[@id="mat-input-4"]')).sendKeys('pranoti11@gmail.com');
 }
 
 getPassword()
@@ -178,6 +178,8 @@ clicksubmitButton()
   }
  
 /**********************************For Registration page********************************/
+
+/***************************************************************************************/ 
   
   //Click on Registration Button on Login page
   clickRegistrationButton()
@@ -212,17 +214,17 @@ clicksubmitButton()
 
   //for Firstname field ,whether it contains any number
   getFirstName9(){
-    return element(by.xpath('//*[@id="mat-input-0"]')).sendKeys('Pranoti123');
+    return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('Pranoti123');
   }
 
   //for Firstname field ,whether it contains any special character
   getFirstName10(){
-    return element(by.xpath('//*[@id="mat-input-1"]')).sendKeys('Pranoti@');
+    return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('Pranoti@');
   }
 
   //for Lastname field ,whether it contains any number
   getLastName10(){
-    return element(by.xpath('//*[@id="mat-input-0"]')).sendKeys('Kusare123');
+    return element(by.xpath('//*[@id="mat-input-1"]')).sendKeys('Kusare123');
   }
 
   //for Firstname field ,whether it contains any special character
@@ -232,27 +234,23 @@ clicksubmitButton()
 
   //for Mailid field ,whether it contains '@gmail'special character
   getEmailId7(){
-    return element(by.xpath('//*[@id="mat-input-0"]')).sendKeys('pranoti.com');
+    return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('pranoti.com');
   }
 
   //for Mailid field ,whether it contains '.com'
   getEmailId9(){
-    return element(by.xpath('//*[@id="mat-input-1"]')).sendKeys('pranoti@gmail');
+    return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('pranoti@gmail');
   }
  
  
- 
-  //****************** */u have to do today
-
-
   //for Mailid field ,whether it contains 'Number'
   getEmailId10(){
-    return element(by.xpath('//*[@id="mat-input-0"]')).sendKeys('pranotigmail');
+    return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('pranotigmail');
   }
   
   //for Mailid field ,whether it contains 'alphabets at the starting of mailid'
   getEmailId11(){
-    return element(by.xpath('//*[@id="mat-input-1"]')).sendKeys('@gmail.com');
+    return element(by.xpath('//*[@id="mat-input-2"]')).sendKeys('@gmail.com');
   }
   
   //For password field,whether first letter of password is in lowercase
@@ -301,6 +299,11 @@ clicksubmitButton()
   }
   getConfirmPassword1(){
     return element(by.xpath('//*[@id="mat-input-6"]')).sendKeys('Prano@');
+  }
+
+  //For clickButton
+  clickCancelButton(){
+    return element(by.xpath('/html/body/app-root/app-registration/div/div[2]/div/button[2]')).click();
   }
 
 }

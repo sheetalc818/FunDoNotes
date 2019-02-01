@@ -147,7 +147,7 @@ export class RegistrationComponent implements OnInit {
     }
     else
     {
-          this.snackbar.open('Please follow the proper format!!','Undo', {duration: 3000});
+          this.snackbar.open('Please fill all the fields and try again!!','Undo', {duration: 3000});
           return false;
     }
   }
