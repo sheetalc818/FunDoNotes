@@ -49,7 +49,7 @@ HTML describes the structure of Web pages using markup-->
       <!--MailId-->
       <mat-form-field>
 
-        <input matInput placeholder="Enter Email" name="email" [(ngModel)]="model.email" [formControl]="email" pattern="[^ @]*@[^ @]*" required>
+        <input matInput placeholder="Enter Email" [(ngModel)]="model.email" name="email" [(ngModel)]="model.email" [formControl]="email" pattern="^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$" required>
         <mat-error *ngIf="email.invalid">{{getErrorEmail()}}</mat-error>
 
       </mat-form-field>

@@ -65,7 +65,7 @@ export class RegistrationComponent implements OnInit {
 
   lastName = new FormControl('', [Validators.required]);
 
-  email = new FormControl('', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]);
+  email = new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$")]);
 
   password = new FormControl('', [Validators.required]);
   
@@ -90,7 +90,7 @@ export class RegistrationComponent implements OnInit {
   getErrorEmail() 
   {
     return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('pattern') ? 'Not a valid email, MailId must contains @' :
+      this.email.hasError('pattern') ? 'Not a valid email, MailId must contains @gmail,numbers and .com' :
         '';
   }
   
@@ -104,7 +104,7 @@ export class RegistrationComponent implements OnInit {
   getErrorMessageConfirmPassword() 
   {
     return this.confirmPassword.hasError('required') ? 'Password is Required' :
-    this.confirmPassword.hasError('confirmPassword') ? 'Not a valid Password! Please type 1st letter capital,use special character,use numbers in your password' :
+    this.confirmPassword.hasError('confirmPassword') ? 'Not a valid Password! Please use 1st letter as capital,special character,use numbers in your password' :
             '';
   }
 
@@ -112,14 +112,14 @@ export class RegistrationComponent implements OnInit {
   
   registration() 
   {
-      if(this.getErrorFirst()!="" || this.getErrorLast()!="" || this.getErrorEmail()!="" || this.getErrorMessagePassword()!="" || this.getErrorMessageConfirmPassword()!="" )
-      {
+    if(this.model.firstName && this.model.lastName && this.model.email &&
+    this.passwordPattern.test(this.password.value) && this.firstnamepattern.test(this.firstName.value) && this.lastnamepattern.test(this.lastName.value))
+    {
 
          if(this.model.password != this.model.confirmPassword)
          {
-            this.snackbar.open('Password mismatch !! , Please enter the valid password!!','Undo', {
-            duration: 3000
-            });
+            this.snackbar.open('Password mismatch !! Please enter the valid password!!','Undo', 
+            {duration: 3000});
             return false;
          }
     
@@ -134,28 +134,25 @@ export class RegistrationComponent implements OnInit {
 
           console.log(requestBody);
 
-          if(this.model.firstName && this.model.lastName && this.model.email && this.model.password == this.model.confirmPassword )
-          {
-            this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
-            console.log(data);
-            this.snackbar.open('Registration Successful!!','Undo', {
-              duration: 3000
-              });
-            this.router.navigate(['']);
-            },err => {console.log(err);
-              this.snackbar.open('Registration failed','Undo', 
-              {duration: 3000})
-          })
-          }
-          else
-        {
-          this.snackbar.open('Registration Failed !! Please fill all the fields first!!','Undo', {
-          duration: 3000
-          });
-          return false;
-        }
-      }
+          this.httpService.postService('/user/userSignUp', this.model).subscribe(data => {
+          
+          console.log(data);
+
+          this.snackbar.open('Registration Successful!!','Undo', {duration: 3000});
+
+          this.router.navigate(['']);
+          },err => {console.log(err);
+              this.snackbar.open('Registration failed !!','Undo', {duration: 3000})
+         })
     }
+    else
+    {
+          this.snackbar.open('Please follow the proper format!!','Undo', {duration: 3000});
+          return false;
+    }
+  }
+  
+  /*if user press cancel button it will navigate to login page */
   cancel() 
   {
       this.router.navigate(['']);

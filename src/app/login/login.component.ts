@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit
   //Tracks the value and validation status of an individual form control
   //email and password validations using FormControl
 
-  email = new FormControl('', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]);
+  email = new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$")]);
  
   password = new FormControl('', [Validators.required,
   Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$')]);
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit
   getErrorMessageEmail() 
   {
     return this.email.hasError('required') ? 'Please enter the valid Email id' :
-    this.email.hasError('pattern') ? 'Not a valid email ! Email Id must containes @ and .com' :
+    this.email.hasError('pattern') ? 'Not a valid email ! Email Id must containes @gmail ,number and .com' :
            '';
   }
 
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit
   getErrorMessagePassword() 
   {
     return this.password.hasError('required') ? 'Please Enter the valid password' :
-    this.password.hasError('pattern') ? 'Please type first letter capital,use special character,number in the password stream ' :
+    this.password.hasError('pattern') ? 'Password length should be min 8 !!Please type first letter capital,use special character,number in the password stream ' :
     '';
   }
 
